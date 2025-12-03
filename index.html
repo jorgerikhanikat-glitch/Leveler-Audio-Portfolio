@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leveler Audio | Modern Audio Production</title>
+    
+    <!-- FAVICON (If you have one) -->
+    <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+
     <style>
         /* --- CSS VARIABLES & RESET --- */
         :root {
@@ -151,7 +155,7 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
-        /* --- PORTFOLIO GRID (Desktop Default) --- */
+        /* --- PORTFOLIO GRID --- */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -162,6 +166,7 @@
             background: var(--card-bg);
             border-radius: 8px;
             overflow: hidden;
+            /* Static box, no effects */
         }
 
         .embed-container {
@@ -174,10 +179,23 @@
             justify-content: center;
         }
         
-        .card-info { padding: 20px; }
-        .card-info h3 { font-size: 1.1rem; margin-bottom: 5px; }
-        .card-info p { font-size: 0.9rem; color: var(--text-muted); }
-
+        .card-info { 
+            padding: 20px 20px 25px; 
+            text-align: center;
+        }
+        
+        /* Updated typography since Titles are gone */
+        .card-info p:first-child { 
+            color: var(--accent); /* Make credits Gold */
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+        
+        .card-info p:last-child {
+            color: var(--text-muted); 
+            font-size: 0.9rem; 
+        }
 
         /* --- SERVICES (DESKTOP SWAP EFFECT) --- */
         .services-grid {
@@ -300,7 +318,7 @@
             .nav-links li { width: 100%; text-align: center; }
             .nav-links a { display: block; padding: 20px; border-bottom: 1px solid #222; }
 
-            /* --- FIXED SERVICES ON MOBILE (Standard Layout) --- */
+            /* --- SERVICES ON MOBILE (Standard Layout) --- */
             .services-grid { gap: 20px; }
             .service-card {
                 height: auto;
@@ -331,66 +349,23 @@
             .service-card:hover p { opacity: 1; transform: none; }
 
 
-            /* --- NEW MOBILE PORTFOLIO LAYOUT (Expandable Grid) --- */
+            /* --- PORTFOLIO ON MOBILE (Rectangles List) --- */
             .portfolio-grid {
-                grid-template-columns: 1fr 1fr; /* 2 columns small grid */
-                gap: 15px;
+                /* Switch to single column for "List" view */
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
 
             .project-card {
-                cursor: pointer;
-                border: 1px solid #333;
-                transition: all 0.3s ease;
-                /* By default, collapsed state styling */
+                /* Ensure full width rectangles */
+                width: 100%;
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .embed-container {
+                /* Ensure player is always visible */
                 display: flex;
-                flex-direction: column;
-                justify-content: center;
-                min-height: 100px; /* Small box height */
-            }
-
-            /* In collapsed state: Hide the player and the extra credits */
-            .project-card .embed-container, 
-            .project-card .card-info p {
-                display: none;
-            }
-
-            /* In collapsed state: Style the title */
-            .project-card .card-info {
-                padding: 10px;
-                text-align: center;
-            }
-            .project-card .card-info h3 {
-                font-size: 0.9rem;
-                margin: 0;
-                color: var(--text-main);
-            }
-
-            /* --- EXPANDED STATE (Triggered via JS) --- */
-            .project-card.expanded {
-                grid-column: 1 / -1; /* Take full width of row */
-                display: block; /* Switch back to block layout */
-                border-color: var(--accent);
-                background: #222;
-            }
-
-            .project-card.expanded .embed-container {
-                display: flex; /* Show player */
-                min-height: 352px; /* Ensure height for spotify */
-            }
-
-            .project-card.expanded .card-info {
-                padding: 20px;
-                text-align: left;
-            }
-            
-            .project-card.expanded .card-info h3 {
-                font-size: 1.2rem;
-                margin-bottom: 5px;
-                color: var(--accent);
-            }
-
-            .project-card.expanded .card-info p {
-                display: block; /* Show credits */
             }
         }
     </style>
@@ -425,7 +400,7 @@
         <div class="container">
             <div class="section-title"><span>Latest Work</span></div>
 
-            <div class="portfolio-grid" id="mobilePortfolioGrid">
+            <div class="portfolio-grid">
                 
                 <!-- Card 1 -->
                 <div class="project-card">
@@ -433,7 +408,6 @@
                         <div class="spotify-embed" data-uri="spotify:track:09Zd2edvykjoOwkL8ETK4y"></div>
                     </div>
                     <div class="card-info">
-                        <h3>Geko - "Ära Jahtu"</h3>
                         <p>Mixed / Mastered</p>
                         <p>Jörg-Erik Hanikat</p>
                     </div>
@@ -445,7 +419,6 @@
                         <div class="spotify-embed" data-uri="spotify:track:67s2ezmWmmmPAoxteKergR"></div>
                     </div>
                     <div class="card-info">
-                        <h3>Rainer Ild - "ginger goes black"</h3>
                         <p>Mixed</p>
                         <p>Martin Randalu</p>
                     </div>
@@ -457,7 +430,6 @@
                         <div class="spotify-embed" data-uri="spotify:track:3nj9cRRWUHQddwl0ZCn3ri"></div>
                     </div>
                     <div class="card-info">
-                        <h3>bloodfeather - "Closer Enemy"</h3>
                         <p>Recorded / Produced / Mixed</p>
                         <p>Jörg-Erik Hanikat</p>
                     </div>
@@ -469,7 +441,6 @@
                         <div class="spotify-embed" data-uri="spotify:track:3EyPQypQd1HoScl517wyvC"></div>
                     </div>
                     <div class="card-info">
-                        <h3>Leaf This Planet - "Can You Hear Me?"</h3>
                         <p>Recorded / Produced / Mixed / Mastered</p>
                         <p>Jörg-Erik Hanikat</p>
                     </div>
@@ -481,7 +452,6 @@
                         <div class="spotify-embed" data-uri="spotify:track:5uWnzCZSpaS0KqFpp6Nbjz"></div>
                     </div>
                     <div class="card-info">
-                        <h3>Lenna - "Maailmalõpu eel"</h3>
                         <p>Mastered</p>
                         <p>Martin Randalu</p>
                     </div>
@@ -493,7 +463,6 @@
                         <div class="spotify-embed" data-uri="spotify:track:3bvQmVs1WeeMq5bwCugZnL"></div>
                     </div>
                     <div class="card-info">
-                        <h3>Horror Dance Squad - "Take Aim & Fire"</h3>
                         <p>Mixed</p>
                         <p>Martin Randalu</p>
                     </div>
@@ -505,7 +474,6 @@
                         <div class="spotify-embed" data-uri="spotify:track:3o04n5EbGnWpdJlcb03ap2"></div>
                     </div>
                     <div class="card-info">
-                        <h3>Ketaspidur, Liv - "Tragöödia"</h3>
                         <p>Mastered</p>
                         <p>Martin Randalu</p>
                     </div>
@@ -517,7 +485,6 @@
                         <div class="spotify-embed" data-uri="spotify:track:2eYNfzBPp0ahVYHMNiP9yK"></div>
                     </div>
                     <div class="card-info">
-                        <h3>Goresoerd - "Maokaev"</h3>
                         <p>Mixed</p>
                         <p>Jörg-Erik Hanikat</p>
                     </div>
@@ -529,7 +496,6 @@
                         <div class="spotify-embed" data-uri="spotify:track:4NyOCGz9E3sru0YshzAikj"></div>
                     </div>
                     <div class="card-info">
-                        <h3>Fööniks - "Metsik"</h3>
                         <p>Mixed / Mastered</p>
                         <p>Martin Randalu</p>
                     </div>
@@ -541,7 +507,6 @@
                         <div class="spotify-embed" data-uri="spotify:track:6uZJGCqNAaIhfBmxH3Wus0"></div>
                     </div>
                     <div class="card-info">
-                        <h3>Pizzafacial - "DJ Disco Disaster"</h3>
                         <p>Mixed / Mastered</p>
                         <p>Jörg-Erik Hanikat</p>
                     </div>
@@ -553,7 +518,6 @@
                         <div class="spotify-embed" data-uri="spotify:track:1yyuZv1L3tmi1QeEL4CBAR"></div>
                     </div>
                     <div class="card-info">
-                        <h3>Pridian - "Hive Mind"</h3>
                         <p>Recorded / Produced/ Mixed</p>
                         <p>Jörg-Erik Hanikat</p>
                     </div>
@@ -565,7 +529,6 @@
                         <div class="spotify-embed" data-uri="spotify:track:1UzSiTbiX3Yryk2IPLXdb2"></div>
                     </div>
                     <div class="card-info">
-                        <h3>Tanel Padar - "Mustad purjed"</h3>
                         <p>Mixed / Mastered</p>
                         <p>Martin Randalu</p>
                     </div>
@@ -577,7 +540,6 @@
                         <div class="spotify-embed" data-uri="spotify:track:3yRT9HfAZG7knZ77TnuCqO"></div>
                     </div>
                     <div class="card-info">
-                        <h3>Ocean Districts - "Fata Morgana"</h3>
                         <p>Mastered</p>
                         <p>Martin Randalu</p>
                     </div>
@@ -589,7 +551,6 @@
                         <div class="spotify-embed" data-uri="spotify:track:6yT7V6FwLbNMRE2mPGWNk5"></div>
                     </div>
                     <div class="card-info">
-                        <h3>bloodfeather, 6un - "Ashes"</h3>
                         <p>Recorded / Produced / Mixed / Mastered</p>
                         <p>Jörg-Erik Hanikat</p>
                     </div>
@@ -601,7 +562,6 @@
                         <div class="spotify-embed" data-uri="spotify:track:6Xobucdoxisw1a4qnSc7Jd"></div>
                     </div>
                     <div class="card-info">
-                        <h3>AEONS - "Gray Sky"</h3>
                         <p>Recorded / Produced / Mixed / Mastered</p>
                         <p>Jörg-Erik Hanikat</p>
                     </div>
@@ -613,7 +573,6 @@
                         <div class="spotify-embed" data-uri="spotify:track:5WfB3dyYAIYxLg6madf8UG"></div>
                     </div>
                     <div class="card-info">
-                        <h3>Trevor - "Must Jää"</h3>
                         <p>Recorded / Produced / Mixed / Mastered</p>
                         <p>Jörg-Erik Hanikat</p>
                     </div>
@@ -712,30 +671,6 @@
                 IFrameAPI.createController(element, options, callback);
             });
         };
-
-        // NEW LOGIC FOR MOBILE PORTFOLIO EXPANSION
-        // This runs only when a card is clicked on mobile
-        document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.project-card');
-
-            cards.forEach(card => {
-                card.addEventListener('click', () => {
-                    // Only active if screen is small (mobile breakpoint)
-                    if (window.innerWidth <= 768) {
-                        
-                        // If it's already expanded, close it
-                        if (card.classList.contains('expanded')) {
-                            card.classList.remove('expanded');
-                        } else {
-                            // Close any other open cards first
-                            cards.forEach(c => c.classList.remove('expanded'));
-                            // Expand the clicked one
-                            card.classList.add('expanded');
-                        }
-                    }
-                });
-            });
-        });
     </script>
 
 </body>
