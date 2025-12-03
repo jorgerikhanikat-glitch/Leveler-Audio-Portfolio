@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leveler Audio | Modern Audio Production</title>
-    
-    <!-- FAVICON CODE (If you added it previously, keep it here) -->
-
     <style>
         /* --- CSS VARIABLES & RESET --- */
         :root {
@@ -161,12 +158,10 @@
             gap: 30px;
         }
 
-        /* Static Portfolio Cards (No Jitter) */
         .project-card {
             background: var(--card-bg);
             border-radius: 8px;
             overflow: hidden;
-            /* No animations */
         }
 
         .embed-container {
@@ -205,7 +200,6 @@
             transition: background 0.3s ease;
         }
 
-        /* Title Style */
         .service-card h3 {
             margin: 0;
             color: var(--accent);
@@ -218,7 +212,6 @@
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
-        /* Description Style */
         .service-card p {
             position: absolute;
             top: 0;
@@ -237,19 +230,15 @@
             line-height: 1.5;
         }
 
-        /* --- HOVER STATES FOR SERVICES --- */
-        /* On Mobile, Tapping triggers :hover */
         .service-card:hover {
             background: #222;
         }
 
-        /* Hide Title */
         .service-card:hover h3 {
             opacity: 0;
             transform: translateY(-20px); 
         }
 
-        /* Show Description */
         .service-card:hover p {
             opacity: 1;
             transform: translateY(0);
@@ -299,7 +288,7 @@
             border-top: 1px solid #222;
         }
 
-        /* --- RESPONSIVE / MOBILE STYLES --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 3rem; }
             .hero-section { padding: 100px 0 60px; }
@@ -324,12 +313,30 @@
             .nav-links.active { max-height: 300px; }
             .nav-links li { width: 100%; text-align: center; }
             .nav-links a { display: block; padding: 20px; border-bottom: 1px solid #222; }
-
-            /* 
-               REMOVED: I removed the service-card overrides here. 
-               This means Mobile will now inherit the Desktop logic.
-               Result: Tapping a card on mobile will trigger the 'Swap' effect.
-            */
+            
+            .service-card {
+                height: auto;
+                min-height: 180px;
+                padding: 20px;
+            }
+            .service-card p {
+                position: relative;
+                opacity: 1;
+                transform: none;
+                height: auto;
+                padding: 10px 0 0 0;
+                color: var(--text-muted);
+                display: block;
+            }
+            .service-card h3 {
+                opacity: 1;
+                transform: none;
+                padding: 0;
+                margin-bottom: 10px;
+                text-align: left;
+            }
+            .service-card:hover h3 { opacity: 1; transform: none; }
+            .service-card:hover p { opacity: 1; transform: none; }
         }
     </style>
 </head>
@@ -365,14 +372,16 @@
 
             <div class="portfolio-grid">
                 
+                <!-- NOTE: Notice the special DIV structure below instead of standard Iframes -->
+                
                 <!-- Card 1 -->
                 <div class="project-card">
                     <div class="embed-container">
-						<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/09Zd2edvykjoOwkL8ETK4y?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <div class="spotify-embed" data-uri="spotify:track:09Zd2edvykjoOwkL8ETK4y"></div>
                     </div>
                     <div class="card-info">
                         <h3>Geko - "Ära Jahtu"</h3>
-                        <p>Recorded / Mixed / Mastered</p>
+                        <p>Mixed / Mastered</p>
                         <p>Jörg-Erik Hanikat</p>
                     </div>
                 </div>
@@ -380,7 +389,7 @@
 				<!-- Card 2 -->
                 <div class="project-card">
                     <div class="embed-container">
-                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/67s2ezmWmmmPAoxteKergR?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <div class="spotify-embed" data-uri="spotify:track:67s2ezmWmmmPAoxteKergR"></div>
                     </div>
                     <div class="card-info">
                         <h3>Rainer Ild - "ginger goes black"</h3>
@@ -392,7 +401,7 @@
                 <!-- Card 3 -->
                 <div class="project-card">
                     <div class="embed-container">
-                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3nj9cRRWUHQddwl0ZCn3ri?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <div class="spotify-embed" data-uri="spotify:track:3nj9cRRWUHQddwl0ZCn3ri"></div>
                     </div>
                     <div class="card-info">
                         <h3>bloodfeather - "Closer Enemy"</h3>
@@ -404,7 +413,7 @@
                 <!-- Card 4 -->
                 <div class="project-card">
                     <div class="embed-container">
-                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3EyPQypQd1HoScl517wyvC?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <div class="spotify-embed" data-uri="spotify:track:3EyPQypQd1HoScl517wyvC"></div>
                     </div>
                     <div class="card-info">
                         <h3>Leaf This Planet - "Can You Hear Me?"</h3>
@@ -416,7 +425,7 @@
                 <!-- Card 5 -->
                 <div class="project-card">
                     <div class="embed-container">
-                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5uWnzCZSpaS0KqFpp6Nbjz?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <div class="spotify-embed" data-uri="spotify:track:5uWnzCZSpaS0KqFpp6Nbjz"></div>
                     </div>
                     <div class="card-info">
                         <h3>Lenna - "Maailmalõpu eel"</h3>
@@ -428,7 +437,7 @@
                 <!-- Card 6 -->
                 <div class="project-card">
                     <div class="embed-container">
-                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3bvQmVs1WeeMq5bwCugZnL?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <div class="spotify-embed" data-uri="spotify:track:3bvQmVs1WeeMq5bwCugZnL"></div>
                     </div>
                     <div class="card-info">
                         <h3>Horror Dance Squad - "Take Aim & Fire"</h3>
@@ -440,7 +449,7 @@
                 <!-- Card 7 -->
                 <div class="project-card">
                     <div class="embed-container">
-                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3o04n5EbGnWpdJlcb03ap2?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <div class="spotify-embed" data-uri="spotify:track:3o04n5EbGnWpdJlcb03ap2"></div>
                     </div>
                     <div class="card-info">
                         <h3>Ketaspidur, Liv - "Tragöödia"</h3>
@@ -452,7 +461,7 @@
                 <!-- Card 8 -->
                 <div class="project-card">
                     <div class="embed-container">
-                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2eYNfzBPp0ahVYHMNiP9yK?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <div class="spotify-embed" data-uri="spotify:track:2eYNfzBPp0ahVYHMNiP9yK"></div>
                     </div>
                     <div class="card-info">
                         <h3>Goresoerd - "Maokaev"</h3>
@@ -464,7 +473,7 @@
                 <!-- Card 9 -->
                 <div class="project-card">
                     <div class="embed-container">
-                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4NyOCGz9E3sru0YshzAikj?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <div class="spotify-embed" data-uri="spotify:track:4NyOCGz9E3sru0YshzAikj"></div>
                     </div>
                     <div class="card-info">
                         <h3>Fööniks - "Metsik"</h3>
@@ -476,7 +485,7 @@
                 <!-- Card 10 -->
                 <div class="project-card">
                     <div class="embed-container">
-                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6uZJGCqNAaIhfBmxH3Wus0?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <div class="spotify-embed" data-uri="spotify:track:6uZJGCqNAaIhfBmxH3Wus0"></div>
                     </div>
                     <div class="card-info">
                         <h3>Pizzafacial - "DJ Disco Disaster"</h3>
@@ -488,7 +497,7 @@
                 <!-- Card 11 -->
                 <div class="project-card">
                     <div class="embed-container">
-                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1yyuZv1L3tmi1QeEL4CBAR?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <div class="spotify-embed" data-uri="spotify:track:1yyuZv1L3tmi1QeEL4CBAR"></div>
                     </div>
                     <div class="card-info">
                         <h3>Pridian - "Hive Mind"</h3>
@@ -500,7 +509,7 @@
                 <!-- Card 12 -->
                 <div class="project-card">
                     <div class="embed-container">
-                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1UzSiTbiX3Yryk2IPLXdb2?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>                    
+                        <div class="spotify-embed" data-uri="spotify:track:1UzSiTbiX3Yryk2IPLXdb2"></div>
                     </div>
                     <div class="card-info">
                         <h3>Tanel Padar - "Mustad purjed"</h3>
@@ -512,7 +521,7 @@
 				<!-- Card 13 -->
                 <div class="project-card">
                     <div class="embed-container">
-                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3yRT9HfAZG7knZ77TnuCqO?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <div class="spotify-embed" data-uri="spotify:track:3yRT9HfAZG7knZ77TnuCqO"></div>
                     </div>
                     <div class="card-info">
                         <h3>Ocean Districts - "Fata Morgana"</h3>
@@ -524,7 +533,7 @@
 				<!-- Card 14 -->
                 <div class="project-card">
                     <div class="embed-container">
-						<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6yT7V6FwLbNMRE2mPGWNk5?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <div class="spotify-embed" data-uri="spotify:track:6yT7V6FwLbNMRE2mPGWNk5"></div>
                     </div>
                     <div class="card-info">
                         <h3>bloodfeather, 6un - "Ashes"</h3>
@@ -536,7 +545,7 @@
                 <!-- Card 15 -->
                 <div class="project-card">
                     <div class="embed-container">
-						<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6Xobucdoxisw1a4qnSc7Jd?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <div class="spotify-embed" data-uri="spotify:track:6Xobucdoxisw1a4qnSc7Jd"></div>
                     </div>
                     <div class="card-info">
                         <h3>AEONS - "Gray Sky"</h3>
@@ -548,7 +557,7 @@
                 <!-- Card 16 -->
                 <div class="project-card">
                     <div class="embed-container">
-					<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5WfB3dyYAIYxLg6madf8UG?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <div class="spotify-embed" data-uri="spotify:track:5WfB3dyYAIYxLg6madf8UG"></div>
                     </div>
                     <div class="card-info">
                         <h3>Trevor - "Must Jää"</h3>
@@ -615,6 +624,48 @@
             const navLinks = document.getElementById("navLinks");
             navLinks.classList.toggle("active");
         }
+    </script>
+
+    <!-- SPOTIFY EMBED SCRIPT - This handles the pause logic -->
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+    <script>
+        // This array will hold all our player controllers
+        const spotifyControllers = [];
+
+        window.onSpotifyIframeApiReady = (IFrameAPI) => {
+            // Find all our placeholder divs
+            const elements = document.querySelectorAll('.spotify-embed');
+            
+            elements.forEach(element => {
+                const uri = element.getAttribute('data-uri');
+                const options = {
+                    uri: uri,
+                    width: '100%',
+                    height: '352', // Matching your design height
+                    theme: 'dark'
+                };
+                
+                const callback = (EmbedController) => {
+                    // Save controller to our list
+                    spotifyControllers.push(EmbedController);
+
+                    // When this specific player updates (starts playing, pauses, etc)
+                    EmbedController.addListener('playback_update', e => {
+                        // If this player just started playing (isPaused is false)
+                        if (e.data.isPaused === false) {
+                            // Loop through ALL other controllers and pause them
+                            spotifyControllers.forEach(controller => {
+                                if (controller !== EmbedController) {
+                                    controller.pause();
+                                }
+                            });
+                        }
+                    });
+                };
+                
+                IFrameAPI.createController(element, options, callback);
+            });
+        };
     </script>
 
 </body>
