@@ -432,7 +432,7 @@
         </h1>
     </section>
 
-    <!-- WORK (DATA LIST) -->
+    <!-- WORK -->
     <section id="work">
         <div class="section-header">
             <span class="label">LATEST WORK</span>
@@ -441,12 +441,15 @@
 
         <div class="data-list">
             
-            <!-- ITEM 01 -->
+            <!-- FIXED: Click event is ONLY on .row-trigger, NOT on .data-row -->
+            <!-- Item 01 -->
             <div class="data-row">
                 <div class="row-trigger" onclick="toggleRow(this.parentNode)">
                     <span class="row-id">01</span>
-                    <div class="row-title">Geko - "Ära Jahtu"<br><span class="row-credits">Jörg-Erik Hanikat</span></div>
-                    <div class="row-meta">MIXED / MASTERED</div>
+                    <div class="row-info">
+                        <span class="row-role">MIXED / MASTERED</span>
+                        <span class="row-credits">Jörg-Erik Hanikat</span>
+                    </div>
                     <div class="row-icon">+</div>
                 </div>
                 <div class="row-content">
@@ -454,12 +457,14 @@
                 </div>
             </div>
 
-            <!-- ITEM 02 -->
+            <!-- Item 02 -->
             <div class="data-row">
                 <div class="row-trigger" onclick="toggleRow(this.parentNode)">
                     <span class="row-id">02</span>
-                    <div class="row-title">Rainer Ild - "ginger goes black"<br><span class="row-credits">Martin Randalu</span></div>
-                    <div class="row-meta">MIXED</div>
+                    <div class="row-info">
+                        <span class="row-role">MIXED</span>
+                        <span class="row-credits">Martin Randalu</span>
+                    </div>
                     <div class="row-icon">+</div>
                 </div>
                 <div class="row-content">
@@ -467,12 +472,14 @@
                 </div>
             </div>
 
-            <!-- ITEM 03 -->
+            <!-- Item 03 -->
             <div class="data-row">
                 <div class="row-trigger" onclick="toggleRow(this.parentNode)">
                     <span class="row-id">03</span>
-                    <div class="row-title">bloodfeather - "Closer Enemy"<br><span class="row-credits">Jörg-Erik Hanikat</span></div>
-                    <div class="row-meta">REC / PROD / MIX</div>
+                    <div class="row-info">
+                        <span class="row-role">REC / PROD / MIX</span>
+                        <span class="row-credits">Jörg-Erik Hanikat</span>
+                    </div>
                     <div class="row-icon">+</div>
                 </div>
                 <div class="row-content">
@@ -480,12 +487,14 @@
                 </div>
             </div>
 
-            <!-- ITEM 04 -->
+            <!-- Item 04 -->
             <div class="data-row">
                 <div class="row-trigger" onclick="toggleRow(this.parentNode)">
                     <span class="row-id">04</span>
-                    <div class="row-title">Leaf This Planet - "Can You Hear Me?"<br><span class="row-credits">Jörg-Erik Hanikat</span></div>
-                    <div class="row-meta">REC / PROD / MIX / MAST</div>
+                    <div class="row-info">
+                        <span class="row-role">REC / PROD / MIX / MAST</span>
+                        <span class="row-credits">Jörg-Erik Hanikat</span>
+                    </div>
                     <div class="row-icon">+</div>
                 </div>
                 <div class="row-content">
@@ -493,12 +502,14 @@
                 </div>
             </div>
 
-            <!-- ITEM 05 -->
+            <!-- Item 05 -->
             <div class="data-row">
                 <div class="row-trigger" onclick="toggleRow(this.parentNode)">
                     <span class="row-id">05</span>
-                    <div class="row-title">Lenna - "Maailmalõpu eel"<br><span class="row-credits">Martin Randalu</span></div>
-                    <div class="row-meta">MASTERED</div>
+                    <div class="row-info">
+                        <span class="row-role">MASTERED</span>
+                        <span class="row-credits">Martin Randalu</span>
+                    </div>
                     <div class="row-icon">+</div>
                 </div>
                 <div class="row-content">
@@ -506,12 +517,14 @@
                 </div>
             </div>
 
-            <!-- ITEM 06 -->
+            <!-- Item 06 -->
             <div class="data-row">
                 <div class="row-trigger" onclick="toggleRow(this.parentNode)">
                     <span class="row-id">06</span>
-                    <div class="row-title">Horror Dance Squad - "Take Aim"<br><span class="row-credits">Martin Randalu</span></div>
-                    <div class="row-meta">MIXED</div>
+                    <div class="row-info">
+                        <span class="row-role">MIXED</span>
+                        <span class="row-credits">Martin Randalu</span>
+                    </div>
                     <div class="row-icon">+</div>
                 </div>
                 <div class="row-content">
@@ -519,12 +532,14 @@
                 </div>
             </div>
 
-             <!-- ITEM 07 -->
-             <div class="data-row">
+            <!-- Item 07 -->
+            <div class="data-row">
                 <div class="row-trigger" onclick="toggleRow(this.parentNode)">
                     <span class="row-id">07</span>
-                    <div class="row-title">Ketaspidur - "Tragöödia"<br><span class="row-credits">Martin Randalu</span></div>
-                    <div class="row-meta">MASTERED</div>
+                    <div class="row-info">
+                        <span class="row-role">MASTERED</span>
+                        <span class="row-credits">Martin Randalu</span>
+                    </div>
                     <div class="row-icon">+</div>
                 </div>
                 <div class="row-content">
@@ -532,12 +547,14 @@
                 </div>
             </div>
 
-             <!-- ITEM 08 -->
-             <div class="data-row">
+            <!-- Item 08 -->
+            <div class="data-row">
                 <div class="row-trigger" onclick="toggleRow(this.parentNode)">
                     <span class="row-id">08</span>
-                    <div class="row-title">Goresoerd - "Maokaev"<br><span class="row-credits">Jörg-Erik Hanikat</span></div>
-                    <div class="row-meta">MIXED</div>
+                    <div class="row-info">
+                        <span class="row-role">MIXED</span>
+                        <span class="row-credits">Jörg-Erik Hanikat</span>
+                    </div>
                     <div class="row-icon">+</div>
                 </div>
                 <div class="row-content">
@@ -545,12 +562,14 @@
                 </div>
             </div>
 
-             <!-- ITEM 09 -->
-             <div class="data-row">
+            <!-- Item 09 -->
+            <div class="data-row">
                 <div class="row-trigger" onclick="toggleRow(this.parentNode)">
                     <span class="row-id">09</span>
-                    <div class="row-title">Fööniks - "Metsik"<br><span class="row-credits">Martin Randalu</span></div>
-                    <div class="row-meta">MIXED / MASTERED</div>
+                    <div class="row-info">
+                        <span class="row-role">MIXED / MASTERED</span>
+                        <span class="row-credits">Martin Randalu</span>
+                    </div>
                     <div class="row-icon">+</div>
                 </div>
                 <div class="row-content">
@@ -558,12 +577,14 @@
                 </div>
             </div>
 
-             <!-- ITEM 10 -->
-             <div class="data-row">
+            <!-- Item 10 -->
+            <div class="data-row">
                 <div class="row-trigger" onclick="toggleRow(this.parentNode)">
                     <span class="row-id">10</span>
-                    <div class="row-title">Pizzafacial - "Disco Disaster"<br><span class="row-credits">Jörg-Erik Hanikat</span></div>
-                    <div class="row-meta">MIXED / MASTERED</div>
+                    <div class="row-info">
+                        <span class="row-role">MIXED / MASTERED</span>
+                        <span class="row-credits">Jörg-Erik Hanikat</span>
+                    </div>
                     <div class="row-icon">+</div>
                 </div>
                 <div class="row-content">
@@ -571,12 +592,14 @@
                 </div>
             </div>
 
-             <!-- ITEM 11 (FIXED) -->
-             <div class="data-row">
+            <!-- Item 11 -->
+            <div class="data-row">
                 <div class="row-trigger" onclick="toggleRow(this.parentNode)">
                     <span class="row-id">11</span>
-                    <div class="row-title">Pridian - "Hive Mind"<br><span class="row-credits">Jörg-Erik Hanikat</span></div>
-                    <div class="row-meta">REC / PROD / MIX</div>
+                    <div class="row-info">
+                        <span class="row-role">REC / PROD / MIX</span>
+                        <span class="row-credits">Jörg-Erik Hanikat</span>
+                    </div>
                     <div class="row-icon">+</div>
                 </div>
                 <div class="row-content">
@@ -584,12 +607,14 @@
                 </div>
             </div>
 
-             <!-- ITEM 12 -->
-             <div class="data-row">
+            <!-- Item 12 -->
+            <div class="data-row">
                 <div class="row-trigger" onclick="toggleRow(this.parentNode)">
                     <span class="row-id">12</span>
-                    <div class="row-title">Tanel Padar - "Mustad purjed"<br><span class="row-credits">Martin Randalu</span></div>
-                    <div class="row-meta">MIXED / MASTERED</div>
+                    <div class="row-info">
+                        <span class="row-role">MIXED / MASTERED</span>
+                        <span class="row-credits">Martin Randalu</span>
+                    </div>
                     <div class="row-icon">+</div>
                 </div>
                 <div class="row-content">
@@ -597,12 +622,14 @@
                 </div>
             </div>
 
-             <!-- ITEM 13 -->
-             <div class="data-row">
+            <!-- Item 13 -->
+            <div class="data-row">
                 <div class="row-trigger" onclick="toggleRow(this.parentNode)">
                     <span class="row-id">13</span>
-                    <div class="row-title">Ocean Districts - "Fata Morgana"<br><span class="row-credits">Martin Randalu</span></div>
-                    <div class="row-meta">MASTERED</div>
+                    <div class="row-info">
+                        <span class="row-role">MASTERED</span>
+                        <span class="row-credits">Martin Randalu</span>
+                    </div>
                     <div class="row-icon">+</div>
                 </div>
                 <div class="row-content">
@@ -610,12 +637,14 @@
                 </div>
             </div>
 
-             <!-- ITEM 14 -->
-             <div class="data-row">
+            <!-- Item 14 -->
+            <div class="data-row">
                 <div class="row-trigger" onclick="toggleRow(this.parentNode)">
                     <span class="row-id">14</span>
-                    <div class="row-title">bloodfeather - "Ashes"<br><span class="row-credits">Jörg-Erik Hanikat</span></div>
-                    <div class="row-meta">FULL PRODUCTION</div>
+                    <div class="row-info">
+                        <span class="row-role">REC / PROD / MIX / MAST</span>
+                        <span class="row-credits">Jörg-Erik Hanikat</span>
+                    </div>
                     <div class="row-icon">+</div>
                 </div>
                 <div class="row-content">
@@ -623,12 +652,14 @@
                 </div>
             </div>
 
-             <!-- ITEM 15 -->
-             <div class="data-row">
+            <!-- Item 15 -->
+            <div class="data-row">
                 <div class="row-trigger" onclick="toggleRow(this.parentNode)">
                     <span class="row-id">15</span>
-                    <div class="row-title">AEONS - "Gray Sky"<br><span class="row-credits">Jörg-Erik Hanikat</span></div>
-                    <div class="row-meta">FULL PRODUCTION</div>
+                    <div class="row-info">
+                        <span class="row-role">REC / PROD / MIX / MAST</span>
+                        <span class="row-credits">Jörg-Erik Hanikat</span>
+                    </div>
                     <div class="row-icon">+</div>
                 </div>
                 <div class="row-content">
@@ -636,12 +667,14 @@
                 </div>
             </div>
 
-             <!-- ITEM 16 -->
-             <div class="data-row">
+            <!-- Item 16 -->
+            <div class="data-row">
                 <div class="row-trigger" onclick="toggleRow(this.parentNode)">
                     <span class="row-id">16</span>
-                    <div class="row-title">Trevor - "Must Jää"<br><span class="row-credits">Jörg-Erik Hanikat</span></div>
-                    <div class="row-meta">FULL PRODUCTION</div>
+                    <div class="row-info">
+                        <span class="row-role">REC / PROD / MIX / MAST</span>
+                        <span class="row-credits">Jörg-Erik Hanikat</span>
+                    </div>
                     <div class="row-icon">+</div>
                 </div>
                 <div class="row-content">
@@ -651,7 +684,7 @@
 
         </div>
     </section>
-    
+
     <!-- SERVICES -->
     <section id="services">
         <div class="section-header">
