@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leveler Audio | Modern Audio Production</title>
     
+    <!-- OPTIMIZATION 1: Preconnect to Spotify and Google Fonts for faster connection -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://open.spotify.com">
+    
+    <!-- OPTIMIZATION 2: Actual Font Import (High Fidelity) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
     <!-- FAVICON (If you have one) -->
     <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
 
@@ -32,9 +40,9 @@
             font-family: var(--font-main);
             line-height: 1.6;
             scroll-behavior: smooth;
+            /* Keeps text sharp on Mac/iOS */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -123,7 +131,8 @@
             top: 0; left: 0; 
             width: 100%; 
             height: 100vh;
-            background-image: url('https://images.pexels.com/photos/4988141/pexels-photo-4988141.jpeg?_gl=1*thtqv8*_ga*NDkzMzY5MDY1LjE3NjQ3NjYzODM.*_ga_8JE65Q40S6*czE3NjQ3NjYzODIkbzEkZzEkdDE3NjQ3NjY1MDgkajIxJGwwJGgw');
+            /* OPTIMIZATION 3: Added query params to image to reduce file size */
+            background-image: url('https://images.pexels.com/photos/4988141/pexels-photo-4988141.jpeg?auto=compress&cs=tinysrgb&w=1920');
             background-size: cover;
             background-position: center;
             filter: blur(4px) brightness(0.8);
@@ -166,7 +175,7 @@
             background: var(--card-bg);
             border-radius: 8px;
             overflow: hidden;
-            /* Static box, no effects */
+            /* OPTIMIZATION 4: Removed all transform/will-change properties to save RAM */
         }
 
         .embed-container {
@@ -184,9 +193,9 @@
             text-align: center;
         }
         
-        /* Updated typography since Titles are gone */
+        /* Updated typography */
         .card-info p:first-child { 
-            color: var(--accent); /* Make credits Gold */
+            color: var(--accent);
             font-weight: 600;
             margin-bottom: 4px;
             font-size: 1rem;
@@ -376,7 +385,9 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">LEVELER<span style="color:var(--accent)">AUDIO</span></a>
+                <!-- OPTIMIZATION 5: href="." clears the hash and reloads home -->
+                <a href="." class="logo">LEVELER<span style="color:var(--accent)">AUDIO</span></a>
+                
                 <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#portfolio" onclick="toggleMenu()">Work</a></li>
