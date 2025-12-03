@@ -151,7 +151,7 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
-        /* --- PORTFOLIO GRID --- */
+        /* --- PORTFOLIO GRID (Desktop Default) --- */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -179,7 +179,7 @@
         .card-info p { font-size: 0.9rem; color: var(--text-muted); }
 
 
-        /* --- SERVICES (SWAP EFFECT) --- */
+        /* --- SERVICES (DESKTOP SWAP EFFECT) --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -230,25 +230,13 @@
             line-height: 1.5;
         }
 
-        .service-card:hover {
-            background: #222;
-        }
-
-        .service-card:hover h3 {
-            opacity: 0;
-            transform: translateY(-20px); 
-        }
-
-        .service-card:hover p {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .service-card:hover { background: #222; }
+        .service-card:hover h3 { opacity: 0; transform: translateY(-20px); }
+        .service-card:hover p { opacity: 1; transform: translateY(0); }
 
         /* --- CONTACT --- */
         .contact-wrapper { max-width: 600px; margin: 0 auto; }
-
         form { display: flex; flex-direction: column; gap: 20px; }
-
         input, textarea {
             background: var(--card-bg);
             border: 1px solid #333;
@@ -258,9 +246,7 @@
             border-radius: 4px;
             font-size: 1rem;
         }
-
         input:focus, textarea:focus { outline: none; border-color: var(--accent); }
-
         button {
             background: var(--accent);
             color: #000;
@@ -273,7 +259,6 @@
             border-radius: 4px;
             transition: 0.3s;
         }
-
         button:hover { background: var(--accent-hover); }
 
         /* --- FOOTER --- */
@@ -288,13 +273,15 @@
             border-top: 1px solid #222;
         }
 
-        /* --- RESPONSIVE --- */
+        /* =========================================
+           MOBILE SPECIFIC STYLES
+           ========================================= */
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 3rem; }
             .hero-section { padding: 100px 0 60px; }
             
+            /* Hamburger Logic */
             .hamburger { display: block; }
-
             .nav-links {
                 position: absolute;
                 top: 70px; 
@@ -309,34 +296,102 @@
                 transition: max-height 0.3s ease;
                 border-bottom: 1px solid #222;
             }
-
             .nav-links.active { max-height: 300px; }
             .nav-links li { width: 100%; text-align: center; }
             .nav-links a { display: block; padding: 20px; border-bottom: 1px solid #222; }
-            
+
+            /* --- FIXED SERVICES ON MOBILE (Standard Layout) --- */
+            .services-grid { gap: 20px; }
             .service-card {
                 height: auto;
-                min-height: 180px;
-                padding: 20px;
+                min-height: auto;
+                display: block;
+                padding: 30px 20px;
+                text-align: left;
+            }
+            .service-card h3 {
+                position: static;
+                opacity: 1;
+                transform: none;
+                padding: 0 0 10px 0;
+                text-align: left;
             }
             .service-card p {
-                position: relative;
+                position: static;
                 opacity: 1;
                 transform: none;
                 height: auto;
-                padding: 10px 0 0 0;
-                color: var(--text-muted);
-                display: block;
-            }
-            .service-card h3 {
-                opacity: 1;
-                transform: none;
                 padding: 0;
-                margin-bottom: 10px;
+                display: block;
+                color: var(--text-muted);
                 text-align: left;
             }
+            /* Disable hover effects on mobile */
             .service-card:hover h3 { opacity: 1; transform: none; }
             .service-card:hover p { opacity: 1; transform: none; }
+
+
+            /* --- NEW MOBILE PORTFOLIO LAYOUT (Expandable Grid) --- */
+            .portfolio-grid {
+                grid-template-columns: 1fr 1fr; /* 2 columns small grid */
+                gap: 15px;
+            }
+
+            .project-card {
+                cursor: pointer;
+                border: 1px solid #333;
+                transition: all 0.3s ease;
+                /* By default, collapsed state styling */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                min-height: 100px; /* Small box height */
+            }
+
+            /* In collapsed state: Hide the player and the extra credits */
+            .project-card .embed-container, 
+            .project-card .card-info p {
+                display: none;
+            }
+
+            /* In collapsed state: Style the title */
+            .project-card .card-info {
+                padding: 10px;
+                text-align: center;
+            }
+            .project-card .card-info h3 {
+                font-size: 0.9rem;
+                margin: 0;
+                color: var(--text-main);
+            }
+
+            /* --- EXPANDED STATE (Triggered via JS) --- */
+            .project-card.expanded {
+                grid-column: 1 / -1; /* Take full width of row */
+                display: block; /* Switch back to block layout */
+                border-color: var(--accent);
+                background: #222;
+            }
+
+            .project-card.expanded .embed-container {
+                display: flex; /* Show player */
+                min-height: 352px; /* Ensure height for spotify */
+            }
+
+            .project-card.expanded .card-info {
+                padding: 20px;
+                text-align: left;
+            }
+            
+            .project-card.expanded .card-info h3 {
+                font-size: 1.2rem;
+                margin-bottom: 5px;
+                color: var(--accent);
+            }
+
+            .project-card.expanded .card-info p {
+                display: block; /* Show credits */
+            }
         }
     </style>
 </head>
@@ -370,9 +425,7 @@
         <div class="container">
             <div class="section-title"><span>Latest Work</span></div>
 
-            <div class="portfolio-grid">
-                
-                <!-- NOTE: Notice the special DIV structure below instead of standard Iframes -->
+            <div class="portfolio-grid" id="mobilePortfolioGrid">
                 
                 <!-- Card 1 -->
                 <div class="project-card">
@@ -626,14 +679,12 @@
         }
     </script>
 
-    <!-- SPOTIFY EMBED SCRIPT - This handles the pause logic -->
+    <!-- SPOTIFY EMBED SCRIPT -->
     <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
     <script>
-        // This array will hold all our player controllers
         const spotifyControllers = [];
 
         window.onSpotifyIframeApiReady = (IFrameAPI) => {
-            // Find all our placeholder divs
             const elements = document.querySelectorAll('.spotify-embed');
             
             elements.forEach(element => {
@@ -641,19 +692,14 @@
                 const options = {
                     uri: uri,
                     width: '100%',
-                    height: '352', // Matching your design height
+                    height: '352', 
                     theme: 'dark'
                 };
                 
                 const callback = (EmbedController) => {
-                    // Save controller to our list
                     spotifyControllers.push(EmbedController);
-
-                    // When this specific player updates (starts playing, pauses, etc)
                     EmbedController.addListener('playback_update', e => {
-                        // If this player just started playing (isPaused is false)
                         if (e.data.isPaused === false) {
-                            // Loop through ALL other controllers and pause them
                             spotifyControllers.forEach(controller => {
                                 if (controller !== EmbedController) {
                                     controller.pause();
@@ -666,6 +712,30 @@
                 IFrameAPI.createController(element, options, callback);
             });
         };
+
+        // NEW LOGIC FOR MOBILE PORTFOLIO EXPANSION
+        // This runs only when a card is clicked on mobile
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.project-card');
+
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    // Only active if screen is small (mobile breakpoint)
+                    if (window.innerWidth <= 768) {
+                        
+                        // If it's already expanded, close it
+                        if (card.classList.contains('expanded')) {
+                            card.classList.remove('expanded');
+                        } else {
+                            // Close any other open cards first
+                            cards.forEach(c => c.classList.remove('expanded'));
+                            // Expand the clicked one
+                            card.classList.add('expanded');
+                        }
+                    }
+                });
+            });
+        });
     </script>
 
 </body>
