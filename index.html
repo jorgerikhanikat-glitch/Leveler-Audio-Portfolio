@@ -15,9 +15,6 @@
         /* =========================================
            QUICK HIDE CONFIGURATION
            ========================================= */
-           
-        /* HIDE RATES SECTION: */
-        #rates, a[href="#rates"] { display: none !important; }
 
         /* HIDE ALBUMS SECTION: */
         /* #albums, a[href="#albums"] { display: none !important; } */
@@ -246,107 +243,6 @@
             line-height: 1;
         }
 
-        /* RATES SECTION */
-        .rates-container {
-            padding: 60px;
-            background: linear-gradient(180deg, rgba(204,255,0,0.02) 0%, rgba(0,0,0,0) 100%);
-        }
-
-        .rates-intro-text {
-            color: var(--dim);
-            margin-bottom: 40px;
-            max-width: 600px;
-        }
-
-        .rates-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .rate-card {
-            border: 1px solid var(--line);
-            background: var(--bg);
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            transition: 0.3s;
-            position: relative;
-        }
-
-        .rate-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-            background: #0e0e0e;
-        }
-
-        .rate-card h4 {
-            font-family: var(--font-head);
-            color: var(--text);
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-        }
-
-        .price-box {
-            display: flex;
-            align-items: baseline;
-            gap: 10px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .price-curr {
-            font-family: var(--font-head);
-            font-size: 2.5rem;
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        .price-old {
-            text-decoration: line-through;
-            color: var(--dim);
-            font-size: 1rem;
-        }
-        
-        .price-sub {
-            font-size: 1rem;
-            color: var(--dim);
-            margin-left: 5px;
-        }
-
-        .rate-features li {
-            font-size: 0.85rem;
-            color: var(--dim);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .rate-features li::before {
-            content: '+';
-            color: var(--accent);
-            margin-right: 10px;
-            font-weight: bold;
-        }
-
-        .rate-btn {
-            margin-top: auto;
-            border: 1px solid var(--dim);
-            color: var(--text);
-            padding: 15px;
-            text-align: center;
-            text-transform: uppercase;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        .rate-card:hover .rate-btn {
-            background: var(--accent);
-            color: var(--bg);
-            border-color: var(--accent);
-        }
-
         /* SERVICES */
         .services-grid {
             display: grid;
@@ -486,9 +382,6 @@
             
             .portfolio-grid { grid-template-columns: 1fr; }
             
-            .rates-container { padding: 30px; }
-            .rates-grid { grid-template-columns: 1fr; }
-
             .services-grid { grid-template-columns: 1fr; }
             .service-cell { 
                 border-right: none; 
@@ -516,7 +409,6 @@
         <ul>
             <li><a href="#work">LATEST WORK</a></li>
             <li><a href="#albums">ALBUMS</a></li>
-            <li><a href="#rates">LIMITED RATES</a></li>
             <li><a href="#services">SERVICES</a></li>
             <li><a href="#contact">LET'S TALK</a></li>
         </ul>
@@ -646,102 +538,6 @@
                 <div class="spotify-embed" data-uri="spotify:album:3zcTggVJIxrjmE8NdVJ5Ny"></div>
             </div>
 
-        </div>
-    </section>
-
-    <section id="rates">
-        <div class="section-header">
-            <span class="label">LIMITED OFFER BOOKING RATES</span>
-            <span style="color:var(--dim)">//</span>
-        </div>
-        <div class="rates-container">
-            <p class="rates-intro-text">
-                WE ARE OPENING A LIMITED NUMBER OF STUDIO SLOTS FOR NEW PROJECTS. 
-                PROFESSIONAL QUALITY. GAP FILLING RATES.
-            </p>
-
-            <div class="rates-grid">
-                
-                <div class="rate-card">
-                    <h4>MIXING</h4>
-                    <div class="price-box">
-                        <span class="price-curr">€150</span>
-                        <span class="price-old">€350</span>
-                    </div>
-                    <ul class="rate-features">
-                        <li>Hybrid Analog/Digital Chain</li>
-                        <li>Sample Replacement (Triggering)</li>
-                        <li>2 Revision Rounds</li>
-                        <li>Fast Turnaround</li>
-                    </ul>
-                    <a href="#contact" class="rate-btn">BOOK SLOT</a>
-                </div>
-
-                <div class="rate-card">
-                    <h4 style="color:var(--accent)">MASTERING</h4>
-                    <div class="price-box">
-                        <span class="price-curr">€70</span>
-                        <span class="price-old">€100</span>
-                    </div>
-                    <ul class="rate-features">
-                        <li>Loudness Optimized for Streaming</li>
-                        <li>Stem Mastering Options</li>
-                        <li>First Song FREE (New Clients)</li>
-                        <li>2 Revision Rounds</li>
-                    </ul>
-                    <a href="#contact" class="rate-btn">BOOK SLOT</a>
-                </div>
-
-                <div class="rate-card">
-                    <h4>EDITING</h4>
-                    <div class="price-box">
-                        <span class="price-curr">€50</span>
-                        <span class="price-old">€90</span>
-                    </div>
-                    <ul class="rate-features">
-                        <li>Drum Quantization</li>
-                        <li>Vocal Tuning</li>
-                        <li>Noise Reduction</li>
-                        <li>Project Prep</li>
-                    </ul>
-                    <a href="#contact" class="rate-btn">BOOK SLOT</a>
-                </div>
-
-                 <div class="rate-card">
-                    <h4>POST-PROD</h4>
-                    <div class="price-box">
-                        <span class="price-curr">€45</span>
-                        <span class="price-sub">/ hour</span>
-                    </div>
-                    <ul class="rate-features">
-                        <li>Podcast / Audiobook Editing</li>
-                        <li>Dialogue Cleanup & Repair</li>
-                        <li>Sound Design for Video</li>
-                        <li>Broadcast Loudness Standards</li>
-                    </ul>
-                    <a href="#contact" class="rate-btn">BOOK SLOT</a>
-                </div>
-
-                 <div class="rate-card">
-                    <h4>GHOST WRITING</h4>
-                    <div class="price-box">
-                        <span class="price-curr">€250</span>
-                        <span class="price-sub">starting at</span>
-                    </div>
-                    <ul class="rate-features">
-                        <li>Custom Instrumental Arrangement</li>
-                        <li>Drum Programming (MIDI included)</li>
-                        <li>Riff Writing & Structure</li>
-                        <li>Vocal Arrangements & Lyrics</li>
-                    </ul>
-                    <a href="#contact" class="rate-btn">DISCUSS IDEA</a>
-                </div>
-
-            </div>
-            
-            <div style="margin-top:20px; font-size: 0.7rem; color: var(--dim); border-top: 1px solid #222; padding-top:10px;">
-                * CONDITIONS: Payment required upfront. Portfolio usage rights required.
-            </div>
         </div>
     </section>
 
